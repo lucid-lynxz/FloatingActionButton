@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
 
     defaultConfig {
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
         applicationId "com.github.fab.sample"
-        minSdkVersion 14
-        targetSdkVersion 23
         versionCode Integer.parseInt(project.VERSION_CODE)
         versionName project.VERSION_NAME
     }
@@ -27,9 +27,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:recyclerview-v7:23.3.0'
-    compile 'com.android.support:design:23.3.0'
-    compile project(':library')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    compile 'com.android.support:appcompat-v7:23.3.0'
+//    compile 'com.android.support:recyclerview-v7:23.3.0'
+//    compile 'com.android.support:design:23.3.0'
+    implementation project(':library')
+    implementation(libs.appcompat)
+    implementation(libs.recyclerView)
+    implementation(libs.supportDesign)
 }

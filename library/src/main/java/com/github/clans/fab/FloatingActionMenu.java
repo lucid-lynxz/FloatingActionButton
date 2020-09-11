@@ -912,6 +912,9 @@ public class FloatingActionMenu extends ViewGroup {
         }
     }
 
+    /**
+     * 点击非按钮区域空白处时,自动关闭菜单
+     */
     public void setClosedOnTouchOutside(boolean close) {
         mIsSetClosedOnTouchOutside = close;
     }
@@ -985,7 +988,7 @@ public class FloatingActionMenu extends ViewGroup {
 
     public void removeAllMenuButtons() {
         close(true);
-        
+
         List<FloatingActionButton> viewsToRemove = new ArrayList<>();
         for (int i = 0; i < getChildCount(); i++) {
             View v = getChildAt(i);
